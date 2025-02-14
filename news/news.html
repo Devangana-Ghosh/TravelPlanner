@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel News</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .article img {
+            width: 100px;
+            height: auto;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Travel News</h1>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search News">
+            <button onclick="searchNews()">Search</button>
+        </div>
+        <div id="newsList"></div>
+    </div>
+
+    <script>
+        async function fetchNews(query = 'tourist destination') {
+            const apiKey = '';
+            const language = 'en';  
+            const apiUrl = `https://newsapi.org/v2/everything?q=${query}&language=${language}&apiKey=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.status === 'ok') {
+                    return data.articles;
+                } else {
+                    throw new Error('Failed to fetch news');
+                }
+            } catch (error) {
+                console.error('Error fetching news:', error.message);
+                return [];
+            }
+        }
+
+        async function renderNews(articles) {
+            const newsList = document.getElementById('newsList');
+            newsList.innerHTML = '';
+
+            articles.forEach(article => {
+                const articleElement = document.createElement('div');
+                articleElement.classList.add('article');
+
+                const imageUrl = article.urlToImage || '';
+                const imageElement = imageUrl ? `<img src="${imageUrl}" alt="Article Image">` : '';
+
+                articleElement.innerHTML = `
+                    <h2>${article.title}</h2>
+                    ${imageElement}
+                    <p>${article.description}</p>
+                    <a href="${article.url}" target="_blank">Read More</a>
+                `;
+
+                newsList.appendChild(articleElement);
+            });
+        }
+
+        async function searchNews() {
+            const searchInput = document.getElementById('searchInput');
+            const query = searchInput.value.trim();
+
+            if (query === '') {
+                alert('Please enter a search term');
+                return;
+            }
+
+            const articles = await fetchNews(query);
+            renderNews(articles);
+        }
+
+        // Initial load
+        window.addEventListener('DOMContentLoaded', async () => {
+            const defaultArticles = await fetchNews();
+            renderNews(defaultArticles);
+        });
+    </script>
+</body>
+</html>

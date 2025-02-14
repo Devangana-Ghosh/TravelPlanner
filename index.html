@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="left">
+            <img src='Images/logo3.png' alt="" class="img">
+        </div>
+        <div class="right">
+            <button class="btn1" onclick="redirectToLoginPage()">Log in</button>
+            <button class="btn2" onclick="redirectToSignupPage()">Sign Up</button>
+        </div>
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#">Home</a></li>
+                <li><a href="travel_guides/travel_guides.html">Travel Guides</a></li>
+                <li><a href="hotel/hotel.html">Hotels</a></li>
+            </ul>
+        </div>   
+        <div class="search">
+            <input type="text" name="search" id="search" placeholder="Explore by destination">
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>You'll never travel without our trip planner again!</h1>
+        <p>
+            <h2>Build, organize and map your itineraries for vacations and road trips.</h2>
+        </p>
+        <button class="btn3" onclick="redirectToPlanningPage()">Start Planning</button>
+        <button class="btn4">Get App</button>
+    </div>
+
+    <script>
+        function redirectToLoginPage() {
+            
+            window.location.href = "signup/login.html";
+        }
+
+        function redirectToSignupPage() {
+             
+            window.location.href = "signup/Sign_Up.html";
+        }
+
+        function redirectToPlanningPage() {
+             
+            window.location.href = "trip/test.html";
+        }
+    </script>
+</body>
+</html>

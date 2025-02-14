@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Search</title>
+ 
+    <link rel="stylesheet" href="hotel.css">
+</head>
+<body>
+    <div class="container">
+        <div class="message-1">
+            <h1>Search for hotels and Airbnb stays in one place</h1>
+        </div>
+        <div class="message-2">
+            <h3>Experience a better hotel search that helps you find perfect lodging, with <br> your preferences as the highest priority.</h3>
+        </div>
+    </div>
+    <div class="search">
+        <input type="text" name="search" id="search" placeholder="Where are you going">
+    </div>
+    <div class="date">
+        <input type="text" name="search2" id="search2" placeholder="When">
+        <div class="icon">
+            <i class="fas fa-calendar-days"></i>
+        </div>
+    </div>
+    <div class="btn">
+        <button id="searchBtn">Search</button>
+    </div>
+ 
+    <script src=''></script>
+
+    <script>
+        
+        function initialize() {
+            var input = document.getElementById('search');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+            
+                var location = place.formatted_address;
+           
+                fetchHotels(location);
+            });
+        }
+        window.addEventListener('load', initialize);
+
+ 
+        function fetchHotels(location) {
+           
+            var requestUrl = 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + encodeURIComponent(location + ' hotels') + '&key=YOUR_API_KEY';
+
+ 
+            fetch(requestUrl)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                   
+                    var hotels = data.results;
+                    hotels.forEach(function(hotel) {
+                        console.log(hotel.name);
+                         
+                    });
+                })
+                .catch(function(error) {
+                    console.error('Error fetching hotels:', error);
+                });
+        }
+
+      
+        document.getElementById('searchBtn').addEventListener('click', function() {
+            var place = document.getElementById('search').value;
+           
+            window.open('https://www.google.com/maps/search/' + encodeURIComponent(place + ' hotels'));
+        });
+    </script>
+</body>
+</html>

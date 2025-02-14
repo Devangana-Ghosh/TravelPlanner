@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <link rel="stylesheet" href="activities.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <h1>Activities</h1>
+    <div id="activityContainer" class="activity-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchActivities();
+        });
+
+        async function fetchActivities() {
+            try {
+                const response = await fetch('http://localhost:3000/activities');
+                const activities = await response.json();
+
+                const activityContainer = document.getElementById('activityContainer');
+                activityContainer.innerHTML = '';  
+
+                activities.forEach(activity => {
+                    const activityCard = createActivityCard(activity);
+                    activityContainer.appendChild(activityCard);
+                });
+            } catch (error) {
+                console.error('Error fetching activities:', error);
+                alert('Error fetching activities. Please try again.');
+            }
+        }
+
+        function createActivityCard(activity) {
+            const card = document.createElement('div');
+            card.classList.add('activity-card');
+
+            const name = document.createElement('h2');
+            name.textContent = activity.name;
+
+            const description = document.createElement('p');
+            description.textContent = activity.description;
+
+            const address = document.createElement('p');
+            address.textContent = `Address: ${activity.address}`;
+
+            const price = document.createElement('p');
+            price.textContent = `Price: $${activity.price}`;
+
+            const date = document.createElement('p');
+            date.textContent = `Date: ${activity.date}`;
+
+            const deleteIcon = document.createElement('i');
+            deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
+            deleteIcon.addEventListener('click', () => {
+                deleteActivity(activity.activities_id);  
+            });
+
+             
+            card.appendChild(name);
+            card.appendChild(description);
+            card.appendChild(address);
+            card.appendChild(price);
+            card.appendChild(date);
+            card.appendChild(deleteIcon);
+
+            return card;
+        }
+
+        async function deleteActivity(activityId) {
+            try {
+                const response = await fetch(`http://localhost:3000/activities/${activityId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    
+                    fetchActivities();
+                } else {
+                    throw new Error('Failed to delete activity');
+                }
+            } catch (error) {
+                console.error('Error deleting activity:', error);
+                alert('Error deleting activity. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>

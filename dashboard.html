@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="travel_guides/travel_guides.html">Travel Guides</a></li>
+                <li><a href="hotel/hotel.html">Hotels</a></li>
+                <li><a href="news/news.html">News</a></li>
+            </ul>
+        </nav>
+        <div class="header-container">
+            <h1>Welcome to Your Dashboard</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="dashboard-item">
+            <h2>My Trips</h2>
+            <button onclick="viewTrips()">View Trips</button>
+            <button onclick="addTrip()">Add New Trip</button>
+        </div>
+
+        <div class="dashboard-item">
+            <h2>My Activities</h2>
+            <button onclick="viewActivities()">View Activities</button>
+            <button onclick="addActivity()">Add New Activity</button>
+        </div>
+    </div>
+
+    
+    <div class="statistics-container">
+        <h2>Most Frequently Visited Cities</h2>
+        <canvas id="placesChart" width="400" height="300"></canvas>
+    </div>
+
+    <script>
+        function viewTrips() {
+            window.location.href = "trip/trip_view.html";
+        }
+
+        function addTrip() {
+            window.location.href = "trip/test.html";
+        }
+
+        function viewActivities() {
+            window.location.href = "activities/activities.html";
+        }
+
+        function addActivity() {
+            window.location.href = "activities/activities_form.html";
+        }
+ 
+        const frequentPlacesData = [
+            { name: 'Bangkok', visits: 22.78 },
+            { name: 'Paris', visits: 19.1 },
+            { name: 'London', visits: 19.09},
+            { name: 'Dubai', visits: 15.93 },
+            { name: 'Singapore', visits: 14.67},
+            { name: 'New York', visits: 13.60 },
+            { name: 'Istanbul', visits: 13.40 },
+            { name: 'Tokyo', visits: 12.93 }
+        ];
+
+        
+        function displayBarChart() {
+            const ctx = document.getElementById('placesChart').getContext('2d');
+
+            const placeNames = frequentPlacesData.map(place => place.name);
+            const placeVisits = frequentPlacesData.map(place => place.visits);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: placeNames,
+                    datasets: [{
+                        label: 'Number of Visits (in millions)',
+                        data: placeVisits,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)',
+                            'rgba(153, 102, 255, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+         
+        document.addEventListener('DOMContentLoaded', () => {
+            displayBarChart();
+        });
+    </script>
+</body>
+</html>
