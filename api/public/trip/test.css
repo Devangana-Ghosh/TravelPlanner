@@ -1,0 +1,116 @@
+body {
+    font-family: 'Baloo Bhai', cursive;
+    margin: 0px;
+    padding: 0px;
+ }
+
+ .container{
+    /* width: 600px; */
+    /* margin: 100px 360px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+ }
+
+ .trip{
+    margin-top: 80px;
+    text-align: center;
+ }
+
+ .search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+ }
+
+ .search input[type="text"]{
+    width: 500px;
+    height: 50px;
+    border-radius: 4px;
+    margin-left: 0px;
+    /* padding-left: 10px; */
+    
+ }
+
+ .search input::placeholder {
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 10px;
+    color: black;
+}
+
+.message{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* left: 500px; */
+    margin-top: -20px;
+    color: orangered;
+}
+
+.date{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    /* border: none; */
+ }
+
+ .date input[type="text"]{
+    width: 500px;
+    height: 50px;
+    border-radius: 4px;
+    margin-left: 0px;
+    /* padding-left: 10px; */ 
+    border: none;
+ }
+
+ .date input::placeholder {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 900;
+    margin-top: 10px;
+    transform: translateY(-85%);
+}
+
+.icon{
+    position: absolute;
+    top: 50%;
+    right: 900px;
+    transform: translateY(-50%);
+    color: black;
+    /* Additional styling if needed */
+    /* font-size: 18px; */
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: centre;
+}
+.btn #first{
+    /* position: absolute;
+    right: 650px;
+    bottom: 150px; */
+    margin-top: 80px;
+    width: 130px;
+    height: 50px;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: rgba(255, 68, 0, 0.781);
+    color: white;
+    border: none;
+}
+
+
+
+
+
+
+
+
+    
+ 

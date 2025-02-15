@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trips Calendar</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 0px;
+        }
+        #calendar {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trips Calendar</h1>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: async function(info, successCallback, failureCallback) {
+                    try {
+                        const response = await fetch('http://localhost:3000/trips');
+                        const trips = await response.json();
+
+                        const events = trips.map(trip => ({
+                            id: trip.trip_id,
+                            title: trip.description, // Use trip description as the event title
+                            start: trip.start_date,
+                            end: trip.end_date,
+                            backgroundColor: 'green', // Set background color for trip events
+                            borderColor: 'darkgreen' // Set border color for trip events
+                        }));
+
+                        successCallback(events);
+                    } catch (error) {
+                        console.error('Error fetching trips:', error);
+                        failureCallback(error);
+                    }
+                },
+                eventClick: function(info) {
+                    alert(`Trip ID: ${info.event.id}\nDescription: ${info.event.title}`);
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
+const apiKey = '3ac79dba0674406f80270019b2c3938d';
