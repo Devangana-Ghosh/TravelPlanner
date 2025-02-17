@@ -13,7 +13,7 @@ const port = 3000;
 
 // ✅ Improved CORS Configuration
 const corsOptions = {
-    origin: ["http://localhost:5500", "http://your-frontend-domain.com"], // Update with your frontend URL
+    origin: ["http://localhost:5500", "https://travel-planner-8lc4mngdl-devanganas-projects.vercel.app/"], // Update with your frontend URL
     methods: "GET, POST, PUT, DELETE, OPTIONS",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true,
@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "api")));
 
 // Serve index.html for "/"
 app.get("/", (req, res) => {
