@@ -1,0 +1,166 @@
+body {
+    font-family: 'Baloo Bhai', cursive;
+    margin: 0px;
+    padding: 0px;
+    background: url('/Images/travel_itenerary_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+  
+ .left {
+    display: inline-block;
+  
+    position: absolute;
+    width: 150px;
+    height: 110px;
+    left: 40px;
+    top: 34px;
+ }
+ 
+ .left img {
+    width: 150px;
+    height: 110px;
+    
+ }
+ .left div {
+    line-height: 19px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+ }
+ 
+ .mid {
+    display: block;
+    width: 45%;
+    margin: 34px 240px;
+     
+ } 
+ 
+ .right{
+    display: inline-block;
+    position: absolute;
+    right: 120px;
+    top: 45px;
+    position: absolute;
+    right: 40px;
+ }
+ .btn1{
+    font-family: 'Baloo Bhai', cursive;
+    margin: 0px 9px;
+    background-color: rgb(228, 100, 26);
+    color: black;
+    padding: 10px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 18px;
+ }
+ .btn2{
+    font-family: 'Baloo Bhai', cursive;
+    margin: 0px 9px;
+    background-color: black;
+    color: white;
+    padding: 10px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 18px;
+ }
+ .btn1:hover{
+    background-color: rgb(18, 107, 190);
+ }
+ .btn2:hover{
+    background-color: rgb(18, 107, 190);  
+ }
+ .container{
+    margin: 120px 225px;
+    padding: 10px 14px;
+    width: 400px;
+    /* border: 2px solid red; */
+    height: 250px;
+ }
+ .container h1{
+    font-size: 25px;
+    color: white;
+ }
+ .container h2{
+    font-size: 18px;
+    text-align: justify;
+    color: rgb(65, 233, 23);
+ }
+ .container .btn3{
+    font-family: 'Baloo Bhai', cursive;
+    margin: 10px 30px;
+    background-color: rgb(228, 100, 26);
+    color: black;
+    padding: 10px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 18px;
+    position: absolute;
+    left: 285px;
+ }
+ .container .btn4{
+    font-family: 'Baloo Bhai', cursive;
+    margin: 10px 30px;
+    background-color: black;
+    color: white;
+    padding: 10px 14px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 18px;
+    position: absolute;
+    left: 435px;
+ }
+ 
+ .container .btn3:hover{
+    background-color: rgb(18, 107, 190);
+ }
+ 
+ .container .btn4:hover{
+    background-color: rgb(18, 107, 190);  
+ }
+ 
+ .navbar{
+    display: inline-block;
+ }
+ 
+ .navbar ul{
+        overflow: auto;
+ }
+ 
+ .navbar li{
+    display: inline-block;
+    font-size: 20px;
+    /* position: absolute;
+    left: 250px; */
+ }
+ 
+ .navbar li a{
+    color: white;
+    text-decoration: none;
+    padding: 18px 18px;
+ }
+ 
+ .navbar li a:hover, .navbar li a.active{
+    text-decoration: underline;
+    color: rgb(138, 172, 223);
+    /* color: rgb(65, 233, 23); */
+ 
+ }
+ 
+ .search{
+        position: absolute;
+        right: 240px;
+        color: firebrick;
+        padding: 15px 75px;
+        top: 34px;
+        
+ }
+ 
+ .search input{
+        border: 2px solid black;
+        border-radius: 10px;
+        padding:10px 17px;
+        width: 150px;
+        right: 250px;
+        text-align: center;
+ }

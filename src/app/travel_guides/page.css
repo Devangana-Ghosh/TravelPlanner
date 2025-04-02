@@ -1,0 +1,176 @@
+body {
+    font-family: 'Baloo Bhai', cursive;
+    margin: 0px;
+    padding: 0px;
+ }
+
+ .container{
+     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+ }
+
+ .message{
+    margin-top: 80px;
+    text-align: center;
+ }
+
+ .search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+ }
+
+ .search input[type="text"]{
+    width: 500px;
+    height: 30px;
+    border-radius: 4px;
+    margin-left: 70px;
+  
+ }
+.search input::placeholder {
+    font-size: 16px;
+    padding-left: 30px;
+}
+ 
+
+.icon{
+    width: 45px;
+    /* display: flex;
+    justify-content: left; */
+    margin-right: 10px;
+    
+}
+
+.browse h4{
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+/* #third{
+    margin-left: 600px;
+    width: 90px;
+    border-radius: 3px;
+    position: absolute;
+} */
+
+/* .button-container{
+    margin-left: 500px;
+    justify-content: space space-evenly;
+} */
+
+#third{
+    position: absolute;
+    right: 525px;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+}
+
+#third:hover{
+    /* background-color:darksalmon; */
+    color:darksalmon;
+    /* background-color:rgb(255, 228, 196); */
+    background-color: lightgrey;
+}
+
+#second:hover{
+    /* background-color:darksalmon; */
+    color:darksalmon;
+    /* background-color:rgb(255, 228, 196); */
+    background-color: lightgrey;
+}
+
+#first:hover{
+    /* background-color:darksalmon; */
+    color:darksalmon;
+    /* background-color:rgb(255, 228, 196); */
+    background-color: lightgrey;
+}
+
+
+
+#second{
+    position: absolute;
+    right: 650px;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+}
+
+#first{
+    position: absolute;
+    right: 750px;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+}
+
+.shop-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* background-color: #e2e7e6; */
+    margin-top: 100px;
+    height: 400px;
+}
+
+.shop-section2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* background-color: #e2e7e6; */
+    margin-top: -170px;
+    height: 400px;
+}
+
+/* .shop-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center; 
+    background-color: #e2e7e6;
+    margin-top: 100px;
+} */
+
+.title h3 {
+    position: absolute;
+    top: 350px;
+    left: 50px;
+}
+
+.box{
+    /* border: 2px solid black; */
+    height: 150px;
+    width: 23%;
+    background-color: white;
+    padding: 20px 0px 15px;
+    margin-top: 50px;
+}
+
+.box-img{
+    height: 150px;
+    background-size: cover;
+    /* margin-top: 1rem; */
+    /* margin-bottom: 1rem; */
+}
+
+.box-content{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.box-content p{
+    color: #007185;
+}
+
+.box-content p:hover{
+    text-decoration: underline;
+    color: rgba(236, 32, 32, 0.76); 
+}
+

@@ -1,0 +1,103 @@
+body {
+    font-family: 'Baloo Bhai', cursive;
+    margin: 0px;
+    padding: 0px;
+    background: url('/Images/Hotel_Booking.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+    
+ }
+
+ .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.message-1 {
+    margin-top: 160px;
+    font-size: 1.2rem;
+    height: 12vh;
+    color: white;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;  
+}
+
+
+.message-2 h3 {
+    margin-top: 10px; 
+    font-size: 1.2rem; 
+    color: white; 
+}
+
+#search{
+    width: 700px;
+    height: 50px;
+    position: absolute;
+    left: 150px;
+    margin-top: 60px;
+    border-radius: 8px;
+    border: none;
+}
+.search input::placeholder{
+    padding-left: 30px;
+    font-size: 16px;
+    margin-top: 10px;
+} 
+
+#search2{
+    width: 140px;
+    height: 50px;
+    position: absolute;
+    left: 870px;
+    margin-top: 60px;
+    border-radius: 8px;
+    border: none;
+}
+
+#search2::placeholder{
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 900;
+    margin-top: 10px;
+    transform: translateY(-85%);
+}
+
+
+.icon{
+   
+    top: 64%;
+    right: 430px;
+    transform: translateY(-50%);
+    color: black;
+    margin-left: 100px;
+}
+
+#first{
+    position: absolute;
+    right: 100px;
+    bottom: 211px;
+    height: 50px;
+    width: 100px;
+    border-radius: 18px;
+    /* margin-top: 60px; */
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    font-weight: 900;
+    border-color: white;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;  
+}
+
+#searchBtn {
+    margin-top: 150px;
+    margin-right: 100px;  
+}
